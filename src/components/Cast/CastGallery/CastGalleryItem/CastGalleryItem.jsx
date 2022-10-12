@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { Image, Item, Title } from './CastGalleryItem.styled';
 
 export default function CastGalleryItem({ movieId, img, name, character }) {
   
 
 
   return (
-    <li key={movieId}>
-      <img src={img} alt={name} />
-      <p>{name}</p>
-      <p>Character: {character}</p>
-    </li>
+    <Item key={movieId}>
+      <div>
+        <Image src={img} alt={name} />
+      </div>
+      <div>
+      <Title>{name}</Title>
+        <Title>Character: {character}</Title>
+      </div>
+    </Item>
     )
 }
 

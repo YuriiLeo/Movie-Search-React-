@@ -4,6 +4,7 @@ import Warnings from 'components/Warnings/Warnings';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { getMovieReviews } from 'services/ApiMovie';
+import { Wrapper } from './Reviews.styled';
 import ReviewsList from './ReviewsList/ReviewsList';
 
 export default function Reviews() {
@@ -38,12 +39,12 @@ console.log(movieId);
   }
 
   return (
-    <div>
+    <Wrapper>
       {loading && <Loader />}
       {error && <Warnings text="Please, try again later" />}
       {movieReviews.length === 0 && <Warnings text="We don't have any reviews for this movie." />}
-      {movieReviews.length > 0 && <p>We have {movieReviews.length} reviews for this movie</p>}
+      {movieReviews.length > 0 && <h2>We have {movieReviews.length} reviews for this movie</h2>}
       {movieReviews.length > 0 && <ReviewsList items={movieReviews} />}
-    </div>
+    </Wrapper>
   )
 }

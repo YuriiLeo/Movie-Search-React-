@@ -3,6 +3,7 @@ import Warnings from 'components/Warnings/Warnings';
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { getMovieCast } from 'services/ApiMovie';
+import { Wrapper } from './Cast.styled';
 import CastGallery from './CastGallery/CastGallery';
 
 export default function CastPage() {
@@ -39,11 +40,11 @@ export default function CastPage() {
 
 
   return (
-    <div>
+    <Wrapper>
       {loading && <Loader />}
       {error && <Warnings text="Please, try again later"/>}
       {<p>{movieCast.length} actors starred in this film!</p>}
       {<CastGallery items={movieCast} />}
-    </div>
+    </Wrapper>
   )
 }

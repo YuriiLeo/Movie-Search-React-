@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from "prop-types";
 import CastGalleryItem from './CastGalleryItem/CastGalleryItem';
+import { List } from './CastGallery.styled';
 
 export default function CastGallery({items}) {
 
  const urlImg = "https://image.tmdb.org/t/p/w500";
   return (
-  <ul>
+  <List>
     {
-              items.map(({ id, name, character, profile_path }) => {
-              if (!profile_path) {
-    return null;
-  }
+         items.map(({ id, name, character, profile_path }) => {
+         if (!profile_path) {
+         return null;
+         }
           const img = urlImg + profile_path;
           
           return (
@@ -22,7 +23,7 @@ export default function CastGallery({items}) {
           name={name}
           character={character}/>)
         })}
-      </ul>
+  </List>
   );
 };
 

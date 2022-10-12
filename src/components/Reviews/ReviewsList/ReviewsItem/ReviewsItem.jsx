@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { Title, Wrapper } from './ReviewsItem.styled';
 
 export default function ReviewsItem({movieId, author, content}) {
   return (
       <li key={movieId}>
-          <div>
-              <h4>Author: {author}.</h4>
+          <Wrapper>
+              <Title>Author: {author}.</Title>
               <p>{content}</p>
-          </div>
+          </Wrapper>
     </li>
     )
 }

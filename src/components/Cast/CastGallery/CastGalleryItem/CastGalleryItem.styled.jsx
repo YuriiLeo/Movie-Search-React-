@@ -10,26 +10,28 @@ export const Wrapper = styled.div`
 `
 
 export const Item = styled.li`
-  border-radius: 2px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-  margin: 5px;
-  background-color: #fff;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    border: 1px solid #e3e3e3;
+    border-radius: var(--imageBorderRadius);
+    overflow: hidden;
+    margin-top: 30px;
+    width: calc((100vw - 80px - 260px - 30px * 4) / 4 );
+    max-width: calc((1400px - 80px - 260px - 30px * 4) / 4);
 `;
 
 export const Image = styled.img`
-  width: 30%;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
-
-  &:hover {
-    /* transform: scale(1.03); */
-    cursor: pointer;
-  }
 `;
 
 export const Title = styled.p`
   margin-left: 5px;
 `;
+
+
