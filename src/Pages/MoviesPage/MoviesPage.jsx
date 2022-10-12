@@ -3,27 +3,33 @@ import MoviesGallery from 'components/MoviesGallery/MoviesGallery';
 import Searchbar from 'components/Searchbar/Searchbar'
 import Warnings from 'components/Warnings/Warnings';
 import { Wrapper } from 'Pages/HomePage/HomePage.styled';
-import React, { useEffect, useState } from 'react'
-// import { useSearchParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { getSearchMovie } from 'services/ApiMovie';
 import { Container } from './MoviesPage.styled'
 
 export default function MoviesPage() {
-
+  const [searchParams, setSearchParams] = useSearchParams();
+  const queryName = searchParams.get('query') ?? '';
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [notFound, setNotFound] = useState(false);
   
   useEffect(() => {
-  const fetchMovies = async () =>  {
-    setIsLoading(true);
+    if (!queryName) {
+      setMovies([]);
+      return;
+    }
+
+    const fetchMovies = async () => {
+      setIsLoading(true);
     
       try {
-        const data = await getSearchMovie(search, page);
+        const data = await getSearchMovie(queryName, page);
 
         if (data.results.length === 0) {
           setNotFound(true);
@@ -42,26 +48,22 @@ export default function MoviesPage() {
       }
     }
     
-    if (search) {
-       fetchMovies();
+    if (queryName) {
+      fetchMovies();
     }
-}, [search, page])
+  }, [queryName, page]);
 
-
-
-  const onSearch = search => {
+  const changeURL = value => {
+    setSearchParams(value !== "" ? { query: value } : {});
     setMovies([]);
-    setSearch(search);
-    console.log("search", search);
     setPage(1);
-  }
-  // const [searchParams, setSearchParams] = useSearchParams();
+  };
 
   const isMovies = Boolean(movies.length);
   return (
     <div>
     <Container>
-        <Searchbar onSearch={onSearch} />
+        <Searchbar changeURL={changeURL} />
     </Container>
       <Wrapper>
       <ToastContainer position="top-right" autoClose={5000} />

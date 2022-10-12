@@ -12,8 +12,6 @@ export default function HomePage() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const [page, setPage] = useState(1);
-  // const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -23,13 +21,11 @@ export default function HomePage() {
         const data = await getMovieTranding();
 
         if (data.results.length === 0) {
-          // setNotFound(true);
+
         } else {
-          setMovies((prevMovies) => {
-            return [...prevMovies, ...data.results]
-          });
-          // setNotFound(false);
+          setMovies(data.results);
         }
+
       } catch (error) {
         console.log(error);
         setError(error);

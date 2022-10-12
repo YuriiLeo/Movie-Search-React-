@@ -1,9 +1,9 @@
 import { useState,  useEffect } from 'react';
 import { getMovieById } from 'services/ApiMovie';
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import Warnings from 'components/Warnings/Warnings';
-import { Img, Poster, PosterWrapper, Wrapper, WrapperSection } from './MovieDetailsPage.styled';
+import { Img, LinkStyled, List, Poster, PosterWrapper, Wrapper, WrapperSection } from './MovieDetailsPage.styled';
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
@@ -41,18 +41,18 @@ export default function MovieDetailsPage() {
   const genreFilter = genres.map(genre => genre.name).join(", ");
 
   return (
-    < div > Movie Details jjjj Page
+    < div >
       {loading && <Loader />}
       {error && <Warnings text="Please, try again later"/>}
      {<div>
-          <Link to="/">Go home</Link> 
+          <LinkStyled to="/">Go home</LinkStyled> 
         <Wrapper>
           <WrapperSection>
           <Img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt={movie.title} />
           <PosterWrapper>
             <Poster>
             <h2>{title}</h2>
-            <p>User Score: {vote_average}</p>
+            <p>User Score: {((vote_average / 10) * 100).toFixed(0)} %</p>
             <h3>Overviev</h3>
             <p>{overview}</p>
             <h4>Genres</h4>
@@ -64,10 +64,10 @@ export default function MovieDetailsPage() {
               </PosterWrapper>
             </WrapperSection>
           </Wrapper>
-          <ul>
-            <li><NavLink to={'cast'}>Cast</NavLink></li>
-            <li><NavLink to={'reviews'}>Reviews</NavLink></li>
-          </ul>
+          <List>
+            <LinkStyled><NavLink to={'cast'}>Cast</NavLink></LinkStyled>
+            <LinkStyled><NavLink to={'reviews'}>Reviews</NavLink></LinkStyled>
+          </List>
           <Outlet/>
         </div>}
     </div>

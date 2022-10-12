@@ -1,14 +1,14 @@
+import { LinkStyled } from 'Pages/MovieDetailsPage/MovieDetailsPage.styled';
 import React from 'react';
-import { MdOutlineSentimentDissatisfied, MdOutlineTravelExplore } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { MdOutlineSentimentDissatisfied } from 'react-icons/md';
+import { Title, Wrapper } from './NotFoundPage.styled';
 
 export default function NotFoundPage() {
   return (
-      <div>
-          <Link to="/">Home page</Link>
-          <MdOutlineTravelExplore size="80"/>
-              Not Found Page
+      <Wrapper>
+          <LinkStyled to="/">Home page</LinkStyled>
+             <Title> Not Found Page</Title>
           <MdOutlineSentimentDissatisfied size="80"/>
-      </div>
+      </Wrapper>
   )
 }

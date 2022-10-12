@@ -4,7 +4,7 @@ import { SearchForm, Button, Label, Input, Icon, } from './Searchbar.styled';
 // import { BiCameraMovie } from "react-icons/bi";
 import { toast } from 'react-toastify'; 
 
-export default function Searchbar({onSearch}) {
+export default function Searchbar({changeURL}) {
   const [search, setSearch] = useState("");
 
   const handleChange = (e) => {
@@ -27,7 +27,7 @@ export default function Searchbar({onSearch}) {
       });
       return;
     }
-    onSearch(search.trim());
+    changeURL(search.trim());
     reset();
   }
   

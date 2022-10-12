@@ -11,7 +11,7 @@ export default function NavbarMenuItem({id, to, text, Icon}) {
   return (
     <Item>
       {/* add className={getClassName} in NavLink */}
-      <Link key={id} to={to}>
+      <Link key={id} to={to} end>
         <Icon style={{marginRight: 3}} size="20"/>
           {text}
       </Link>

@@ -5,4 +5,5 @@ display: inline-block;
     font-size: 20px;
     margin-left: auto;
     margin-right: auto;
+    padding: 12px 24px;
 `;

@@ -9,11 +9,6 @@ import SharedLayout from "./SharedLayout/SharedLayout";
 
 export const App = () => {
   return (
-    // <div
-
-    // >
-    //   React homework template
-    // </div>
     <div
         style={{
         // height: '100vh',

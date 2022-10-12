@@ -9,6 +9,14 @@ export const Item = styled.li`
 export const Link = styled(NavLink)`
   display: flex;
   align-items: center;
+
+   &.active {
+    color: #111414de;
+  }
+
+  &:hover {
+    color: #787575
+  }
 `;
 
 // export const Icons = styled(Icon)`

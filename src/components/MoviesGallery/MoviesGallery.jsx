@@ -5,18 +5,19 @@ import MoviesGalleryItem from 'components/MoviesGallery/MoviesGalleryItem/Movies
 
 
 export default function MoviesGallery({ items }) {
-  const urlImg = "https://image.tmdb.org/t/p/w342";
+  console.log(items);
+  const urlImg = "https://image.tmdb.org/t/p/w500";
   return (
   <Gallery>
     {
-        items.map(({ id, backdrop_path, title }) => {
-          const img = urlImg + backdrop_path;
+        items.map(({ id, backdrop_path, title, poster_path }) => {
+
+          const img = backdrop_path ? urlImg + backdrop_path : urlImg + poster_path;
           return (
         <MoviesGalleryItem
           key={id}
           movieId={id}
           img={img}
-          imgLarge={backdrop_path}
           title={title}  />)
         })}
       </Gallery>
