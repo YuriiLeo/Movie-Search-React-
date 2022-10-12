@@ -4,7 +4,7 @@ import Searchbar from 'components/Searchbar/Searchbar'
 import Warnings from 'components/Warnings/Warnings';
 import { Wrapper } from 'Pages/HomePage/HomePage.styled';
 import React, { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+// import { useSearchParams } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify';
 import { getSearchMovie } from 'services/ApiMovie';
 import { Container } from './MoviesPage.styled'

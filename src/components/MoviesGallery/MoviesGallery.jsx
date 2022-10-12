@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import ImageGalleryItem from 'components/MoviesGallery/MoviesGalleryItem/MoviesGalleryItem';
 import { Gallery } from './MoviesGallery.styled';
+import MoviesGalleryItem from 'components/MoviesGallery/MoviesGalleryItem/MoviesGalleryItem';
 
 
 export default function MoviesGallery({ items }) {
@@ -12,7 +12,7 @@ export default function MoviesGallery({ items }) {
         items.map(({ id, backdrop_path, title }) => {
           const img = urlImg + backdrop_path;
           return (
-        <ImageGalleryItem
+        <MoviesGalleryItem
           key={id}
           movieId={id}
           img={img}
