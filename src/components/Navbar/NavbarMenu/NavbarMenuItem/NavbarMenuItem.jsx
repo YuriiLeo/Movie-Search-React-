@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import { Item, Link } from './NavbarMenuItem.styled';
 
 // const getClassName = ({ isActive }) => {
 //     return isActive ? `` : ``;
@@ -8,12 +9,12 @@ import { NavLink } from 'react-router-dom';
 
 export default function NavbarMenuItem({id, to, text, Icon}) {
   return (
-    <li>
+    <Item>
       {/* add className={getClassName} in NavLink */}
-      <NavLink key={id} to={to}>
-          <Icon size="16"/>
+      <Link key={id} to={to}>
+        <Icon style={{marginRight: 3}} size="20"/>
           {text}
-      </NavLink>
-    </li>
+      </Link>
+    </Item>
   )
 }

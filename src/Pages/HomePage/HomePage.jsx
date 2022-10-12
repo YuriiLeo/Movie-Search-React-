@@ -5,13 +5,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import Warnings from "components/Warnings/Warnings";
 import React, { useState, useEffect } from 'react';
 import MoviesGallery from 'components/MoviesGallery/MoviesGallery';
+import { Title, Wrapper } from './HomePage.styled';
 
 export default function HomePage() {
 
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [page, setPage] = useState(1);
+  // const [page, setPage] = useState(1);
   // const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
@@ -19,7 +20,7 @@ export default function HomePage() {
       setIsLoading(true);
     
       try {
-        const data = await getMovieTranding(page);
+        const data = await getMovieTranding();
 
         if (data.results.length === 0) {
           // setNotFound(true);
@@ -40,20 +41,20 @@ export default function HomePage() {
   
     fetchMovies();
       
-  }, [ page]);
+  }, []);
 
 
 const isMovies = Boolean(movies.length);
   
   return (
-    <div>
-        <div>Trending today
-        </div>
+    <Wrapper>
+        <Title>Trending today
+        </Title>
         <ToastContainer position="top-right" autoClose={5000} />
         {isLoading && <Loader/>}
         {error && <Warnings text="Please, try again later"/>}
         {isMovies && <MoviesGallery items={movies} />}
         {/* {(isMovies && movies.length < totalMovies) && <Button loadMore={loadMore} />} */}
-    </div>
+    </Wrapper>
   )
 }

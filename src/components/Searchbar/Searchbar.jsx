@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
-import { SearchbarHeader, SearchForm, Button, Label, Input, } from './Searchbar.styled';
-import { MdOutlineImageSearch } from "react-icons/md";
+import { SearchForm, Button, Label, Input, Icon, } from './Searchbar.styled';
+// import { BiCameraMovie } from "react-icons/bi";
 import { toast } from 'react-toastify'; 
 
 export default function Searchbar({onSearch}) {
@@ -9,6 +9,7 @@ export default function Searchbar({onSearch}) {
 
   const handleChange = (e) => {
     const { value } = e.target;
+    console.log("value", value);
     setSearch(value.toLowerCase());
   }
 
@@ -35,23 +36,20 @@ export default function Searchbar({onSearch}) {
   }  
 
   return (
-      <SearchbarHeader>
-       <SearchForm onSubmit={handleSubmit}>
-          <Button type="submit" onClick={handleSubmit}>
-            <MdOutlineImageSearch size={40}/>
-           <Label>Search</Label>
-          </Button>
-          
+       <SearchForm onSubmit={handleSubmit}>        
          <Input 
             type="text"
             name="search"
             value={search}
            autocomplete="off"
-            placeholder="Search images and photos"
+            placeholder="Search movies"
             onChange={handleChange}
-         />
+      />
+          <Button type="submit" onClick={handleSubmit}>
+            <Icon />
+           <Label>Search</Label>
+          </Button>
         </SearchForm>
-      </SearchbarHeader>
     )
 }
 

@@ -29,9 +29,10 @@ export const getMovieById = async (id) => {
   return data;
 }
 
-export const getSearchMovie = async (page, query='batman') => {
+export const getSearchMovie = async (query, page ) => {
   const { data } = await instance.get(`${Search}?`, {
-      params: {
+    params: {
+        page,
         query,
       }
     });

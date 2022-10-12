@@ -6,7 +6,8 @@ export default function NavbarMenu() {
     return (
         <ul style={{
             display:"flex",
-            justifyContent:"flex-start"
+            justifyContent: "flex-start",
+            fontSize:20
         }}>
             {
             items.map(({ id, to, text, icon }) => (
