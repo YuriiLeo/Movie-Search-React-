@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/YuriiLeo/goit-react-hw-05-movies/static/css/main.c60d9d53.css",
-    "main.js": "/YuriiLeo/goit-react-hw-05-movies/static/js/main.1ae96886.js",
+    "main.js": "/YuriiLeo/goit-react-hw-05-movies/static/js/main.e7c8761d.js",
     "index.html": "/YuriiLeo/goit-react-hw-05-movies/index.html",
     "main.c60d9d53.css.map": "/YuriiLeo/goit-react-hw-05-movies/static/css/main.c60d9d53.css.map",
-    "main.1ae96886.js.map": "/YuriiLeo/goit-react-hw-05-movies/static/js/main.1ae96886.js.map"
+    "main.e7c8761d.js.map": "/YuriiLeo/goit-react-hw-05-movies/static/js/main.e7c8761d.js.map"
   },
   "entrypoints": [
     "static/css/main.c60d9d53.css",
-    "static/js/main.1ae96886.js"
+    "static/js/main.e7c8761d.js"
   ]
 }
