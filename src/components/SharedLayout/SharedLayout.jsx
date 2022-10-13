@@ -7,7 +7,6 @@ export default function SharedLayout() {
       <>
           <Navbar /> 
               <Outlet />
-          {/* <footer>My footer</footer> */}
       </>
   )
 }
