@@ -15,6 +15,6 @@ export default function ReviewsItem({movieId, author, content}) {
 
 ReviewsItem.propTypes = {
   movieId: PropTypes.string,
-        author: PropTypes.string,
-        content: PropTypes.string
+  author: PropTypes.string,
+  content: PropTypes.string
 }

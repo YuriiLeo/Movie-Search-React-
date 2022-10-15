@@ -1,4 +1,3 @@
-// import ReviewsGallery from 'components/Reviews/ReviewsGallery/ReviewsGallery';
 import Loader from 'components/Loader/Loader';
 import Warnings from 'components/Warnings/Warnings';
 import React, { useEffect, useState } from 'react'
@@ -14,7 +13,6 @@ const [error, setError] = useState(null);
 
 const { movieId } = useParams();
 const id = movieId;
-console.log(movieId);
   
   useEffect(() => {
     const fetchMovieReviews = async () => {

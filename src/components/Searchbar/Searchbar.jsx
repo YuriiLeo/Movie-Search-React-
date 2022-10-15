@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import { SearchForm, Button, Label, Input, Icon, } from './Searchbar.styled';
-// import { BiCameraMovie } from "react-icons/bi";
 import { toast } from 'react-toastify'; 
 
 export default function Searchbar({changeURL}) {
@@ -9,7 +8,6 @@ export default function Searchbar({changeURL}) {
 
   const handleChange = (e) => {
     const { value } = e.target;
-    console.log("value", value);
     setSearch(value.toLowerCase());
   }
 
@@ -55,5 +53,5 @@ export default function Searchbar({changeURL}) {
 
 
 Searchbar.propTypes = {
-  onSearch: PropTypes.func
+  changeURL: PropTypes.func
 }

@@ -29,9 +29,9 @@ export default function CastGallery({items}) {
 
 CastGallery.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string,
-        id: PropTypes.number,
-        character: PropTypes.string,
-        profile_path: PropTypes.string
+        name: PropTypes.string.isRequired,
+        id: PropTypes.number.isRequired,
+        character: PropTypes.string.isRequired,
+        profile_path: PropTypes.string.isRequired
     }))
 }

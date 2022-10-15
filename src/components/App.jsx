@@ -1,10 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-// import HomePage from "Pages/HomePage/HomePage";
-// import MoviesPage from "Pages/MoviesPage/MoviesPage";
-// import MovieDetailsPage from "Pages/MovieDetailsPage/MovieDetailsPage";
-// import Cast from "components/Cast/Cast";
-// import Reviews from "components/Reviews/Reviews";
-// import NotFoundPage from "Pages/NotFoundPage/NotFoundPage";
 import SharedLayout from "./SharedLayout/SharedLayout";
 import { lazy } from "react";
 

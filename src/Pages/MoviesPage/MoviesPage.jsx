@@ -10,12 +10,13 @@ import { getSearchMovie } from 'services/ApiMovie';
 import { Container } from './MoviesPage.styled'
 
 export default function MoviesPage() {
+
   const [searchParams, setSearchParams] = useSearchParams();
   const queryName = searchParams.get('query') ?? '';
+
   const [movies, setMovies] = useState([])
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  // const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [notFound, setNotFound] = useState(false);
   
@@ -60,6 +61,7 @@ export default function MoviesPage() {
   };
 
   const isMovies = Boolean(movies.length);
+
   return (
     <div>
     <Container>
@@ -71,7 +73,7 @@ export default function MoviesPage() {
       {isLoading && <Loader />}
       {error && <Warnings text="Please, try again later"/>}
       {!isMovies && !notFound && <Warnings text="Enter key word for images search"/>}
-        {isMovies && <MoviesGallery items={movies} />}
+      {isMovies && <MoviesGallery items={movies} />}
       </Wrapper>
     </div>
   )

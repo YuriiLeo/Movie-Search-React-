@@ -14,7 +14,6 @@ export default function CastPage() {
 
   const { movieId } = useParams();
   const id = movieId;
-  console.log(movieId);
   
   useEffect(() => {
     const fetchMovieCast = async () => {

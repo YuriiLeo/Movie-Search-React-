@@ -5,7 +5,6 @@ import MoviesGalleryItem from 'components/MoviesGallery/MoviesGalleryItem/Movies
 
 
 export default function MoviesGallery({ items }) {
-  console.log(items);
   const urlImg = "https://image.tmdb.org/t/p/w500";
   return (
   <Gallery>
