@@ -26,8 +26,9 @@ export default function MoviesGallery({ items }) {
 
 MoviesGallery.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
-        webformatURL: PropTypes.string,
+        backdrop_path: PropTypes.string,
         id: PropTypes.number,
-        largeImageURL: PropTypes.string
+        title: PropTypes.string,
+        poster_path: PropTypes.string,
     }))
 }

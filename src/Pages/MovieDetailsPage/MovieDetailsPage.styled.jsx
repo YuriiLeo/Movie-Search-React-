@@ -6,9 +6,15 @@ export const LinkStyled = styled(Link)`
   margin-left: 24px;
   padding: 5px;
   border: 0;
+  top: 70px;
+  left: 0;
+  position: sticky;
+  z-index: 1100;
+  background-color: #fff;
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 4px;
   opacity: 0.6;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;

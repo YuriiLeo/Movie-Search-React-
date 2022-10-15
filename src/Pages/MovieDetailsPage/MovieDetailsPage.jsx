@@ -1,6 +1,6 @@
-import { useState,  useEffect } from 'react';
+import { useState,  useEffect, Suspense } from 'react';
 import { getMovieById } from 'services/ApiMovie';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import Warnings from 'components/Warnings/Warnings';
 import { Img, LinkStyled, List, Poster, PosterWrapper, Wrapper, WrapperSection } from './MovieDetailsPage.styled';
@@ -12,7 +12,15 @@ export default function MovieDetailsPage() {
 
   const { movieId } = useParams();
   const id = movieId;
-  console.log(movieId);
+
+  const location = useLocation();
+
+  const isCastPage = location.pathname.includes('cast' || 'reviews');
+  const castLink = isCastPage ? `/movies/${id}` : `/movies/${id}/cast`;
+  const isReviewsPage = location.pathname.includes('reviews' || 'cast');
+  const reviewsLink = isReviewsPage ? `/movies/${id}` : `/movies/${id}/reviews`;
+
+  const backLink = location.state?.from ?? "/";
   
   useEffect(() => {
     const fetchMovie = async () => {
@@ -21,7 +29,6 @@ export default function MovieDetailsPage() {
         setError(null);
 
         const result = await getMovieById (id);
-        console.log("result", result);
         setMovie(result);
 
       } catch (e) {
@@ -45,7 +52,7 @@ export default function MovieDetailsPage() {
       {loading && <Loader />}
       {error && <Warnings text="Please, try again later"/>}
      {<div>
-          <LinkStyled to="/">Go home</LinkStyled> 
+          <LinkStyled  to={backLink} >Go back</LinkStyled> 
         <Wrapper>
           <WrapperSection>
           <Img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt={movie.title} />
@@ -65,10 +72,12 @@ export default function MovieDetailsPage() {
             </WrapperSection>
           </Wrapper>
           <List>
-            <LinkStyled><NavLink to={'cast'}>Cast</NavLink></LinkStyled>
-            <LinkStyled><NavLink to={'reviews'}>Reviews</NavLink></LinkStyled>
-          </List>
-          <Outlet/>
+            <LinkStyled><NavLink to={castLink} state={{from: location.state.from}} >Cast</NavLink></LinkStyled>
+            <LinkStyled><NavLink to={reviewsLink} state={{from: location.state.from}} >Reviews</NavLink></LinkStyled>
+        </List>
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
         </div>}
     </div>
   )
