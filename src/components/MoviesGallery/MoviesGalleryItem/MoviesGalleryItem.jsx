@@ -9,7 +9,8 @@ export default function MoviesGalleryItem({ movieId, img, title }) {
     <Item key={movieId}>
       <Link to={`/movies/${movieId}`} state={{from: location}} >
         <Wrapper>
-            <Image  src={img} alt={title} />
+          {img ? <Image src={`https://image.tmdb.org/t/p/w342${img}`} alt={title} />
+            : <Image src={`http://dummyimage.com/100x150/99cccc.gif&text=Not+image! `} />}
            <Title>{title}</Title>          
       </Wrapper>
       </Link>

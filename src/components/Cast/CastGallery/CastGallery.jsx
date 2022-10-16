@@ -5,15 +5,11 @@ import { List } from './CastGallery.styled';
 
 export default function CastGallery({items}) {
 
- const urlImg = "https://image.tmdb.org/t/p/w500";
   return (
   <List>
     {
          items.map(({ id, name, character, profile_path }) => {
-         if (!profile_path) {
-         return null;
-         }
-          const img = urlImg + profile_path;
+          const img =  profile_path;
           
           return (
         <CastGalleryItem

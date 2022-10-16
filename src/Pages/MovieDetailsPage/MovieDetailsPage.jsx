@@ -20,8 +20,8 @@ export default function MovieDetailsPage() {
   const isReviewsPage = location.pathname.includes('reviews' || 'cast');
   const reviewsLink = isReviewsPage ? `/movies/${id}` : `/movies/${id}/reviews`;
 
-  const backLink = location.state?.from ?? "/";
-  
+  const backLink = location?.state?.from ?? "/";
+
   useEffect(() => {
     const fetchMovie = async () => {
       try {
@@ -55,7 +55,7 @@ export default function MovieDetailsPage() {
           <LinkStyled  to={backLink} >Go back</LinkStyled> 
         <Wrapper>
           <WrapperSection>
-          <Img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt={movie.title} />
+            {poster_path ? <Img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt={movie.title}/> : <Img src={`http://dummyimage.com/100x150/99cccc.gif&text=Not+image! `}/>  }
           <PosterWrapper>
             <Poster>
             <h2>{title}</h2>

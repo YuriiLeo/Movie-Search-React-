@@ -24,10 +24,10 @@ export const Item = styled.li`
 `;
 
 export const Image = styled.img`
-  width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 2px;
+  width: calc((100vw - 80px - 260px - 30px * 4) / 4 );
 `;
 
 export const Title = styled.p`

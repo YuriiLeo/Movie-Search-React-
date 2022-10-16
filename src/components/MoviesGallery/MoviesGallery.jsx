@@ -5,13 +5,12 @@ import MoviesGalleryItem from 'components/MoviesGallery/MoviesGalleryItem/Movies
 
 
 export default function MoviesGallery({ items }) {
-  const urlImg = "https://image.tmdb.org/t/p/w500";
   return (
   <Gallery>
     {
         items.map(({ id, backdrop_path, title, poster_path }) => {
 
-          const img = backdrop_path ? urlImg + backdrop_path : urlImg + poster_path;
+          const img = backdrop_path || poster_path;
           return (
         <MoviesGalleryItem
           key={id}

@@ -9,7 +9,8 @@ export default function CastGalleryItem({ movieId, img, name, character }) {
   return (
     <Item key={movieId}>
       <div>
-        <Image src={img} alt={name} />
+          {img ? <Image src={`https://image.tmdb.org/t/p/w342${img}`} alt={name} />
+            : <Image src={`http://dummyimage.com/100x150/99cccc.gif&text=Not+image! `} />}
       </div>
       <div>
       <Title>{name}</Title>
