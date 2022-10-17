@@ -71,9 +71,11 @@ export default function MovieDetailsPage() {
               </PosterWrapper>
             </WrapperSection>
           </Wrapper>
-          <List>
-            <LinkStyled><NavLink to={castLink} state={{from: location.state.from}} >Cast</NavLink></LinkStyled>
-            <LinkStyled><NavLink to={reviewsLink} state={{from: location.state.from}} >Reviews</NavLink></LinkStyled>
+        <List>
+            <LinkStyled><NavLink to={castLink} state={{from: backLink}} >Cast</NavLink></LinkStyled>
+            <LinkStyled><NavLink to={reviewsLink} state={{from: backLink}} >Reviews</NavLink></LinkStyled>
+            {/* <LinkStyled><NavLink to={castLink} state={{from: location.state.from}} >Cast</NavLink></LinkStyled>
+            <LinkStyled><NavLink to={reviewsLink} state={{from: location.state.from}} >Reviews</NavLink></LinkStyled> */}
         </List>
         <Suspense fallback={null}>
           <Outlet />
