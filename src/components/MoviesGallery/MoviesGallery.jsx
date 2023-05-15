@@ -10,7 +10,7 @@ export default function MoviesGallery({ items }) {
     {
         items.map(({ id, backdrop_path, title, poster_path }) => {
 
-          const img = backdrop_path || poster_path;
+          const img = poster_path || backdrop_path ;
           return (
         <MoviesGalleryItem
           key={id}

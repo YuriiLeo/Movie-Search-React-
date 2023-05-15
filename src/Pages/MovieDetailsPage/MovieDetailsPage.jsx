@@ -3,7 +3,7 @@ import { getMovieById } from 'services/ApiMovie';
 import { NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import Loader from 'components/Loader/Loader';
 import Warnings from 'components/Warnings/Warnings';
-import { Img, LinkStyled, List, Poster, PosterWrapper, Wrapper, WrapperSection } from './MovieDetailsPage.styled';
+import { BackgraundPost, Img, LinkStyled, List, Poster, PosterWrapper, Wrapper, WrapperSection } from './MovieDetailsPage.styled';
 
 export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
@@ -44,18 +44,23 @@ export default function MovieDetailsPage() {
     return null;
   }
 
-  const { poster_path, title, vote_average, overview, genres } = movie;
+  const { poster_path, title, vote_average, overview, genres, backdrop_path } = movie;
   const genreFilter = genres.map(genre => genre.name).join(", ");
 
+  const posterPathImg = `https://image.tmdb.org/t/p/w342${poster_path}`;
+  const backdropPathImg = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+  console.log(backdropPathImg);
+
+
   return (
-    < div >
+    < BackgraundPost path={backdropPathImg}>
       {loading && <Loader />}
       {error && <Warnings text="Please, try again later"/>}
      {<div>
           <LinkStyled  to={backLink} >Go back</LinkStyled> 
-        <Wrapper>
-          <WrapperSection>
-            {poster_path ? <Img src={`https://image.tmdb.org/t/p/w342${poster_path}`} alt={movie.title}/> : <Img src={`http://dummyimage.com/100x150/99cccc.gif&text=Not+image! `}/>  }
+        <Wrapper >
+          <WrapperSection >
+            {poster_path ? <Img src={posterPathImg} alt={movie.title}/> : <Img src={`http://dummyimage.com/100x150/99cccc.gif&text=Not+image! `}/>  }
           <PosterWrapper>
             <Poster>
             <h2>{title}</h2>
@@ -81,6 +86,6 @@ export default function MovieDetailsPage() {
           <Outlet />
         </Suspense>
         </div>}
-    </div>
+    </BackgraundPost>
   )
 }

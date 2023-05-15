@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 export const LinkStyled = styled(Link)`
   display: inline-block;
-  margin-left: 24px;
+  margin-left: 40px;
+  margin-top: 12px;
+  margin-bottom: 12px;
   padding: 5px;
   border: 0;
   top: 70px;
@@ -31,7 +33,15 @@ export const LinkStyled = styled(Link)`
   }  
 `;
 
+export const BackgraundPost = styled.div`
+    background-image: url("${props => props.path}");
+background-size: cover;
+margin: 12px 24px;
+`;
+
 export const Wrapper = styled.div`
+/* background-image: url("${props => props.path}"); */
+
     border-bottom: 1px solid #211e1e;
     background-position: right -200px top;
     background-size: cover;
@@ -40,7 +50,7 @@ export const Wrapper = styled.div`
         rgb(0 188 212 / 87%), rgb(0 188 212 / 50%));
     color: #ffffff;
     border-radius: 4px;
-    margin: 12px 24px;
+    /* margin: 12px 24px; */
     box-shadow: 0px 2px 4px -1px 
         rgb(0 0 0 / 20%), 0px 4px 5px 0px 
         rgb(0 0 0 / 14%), 0px 1px 10px 0px 
