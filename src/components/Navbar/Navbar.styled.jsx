@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const NavbarMenuStyled = styled.nav`
   top: 0;
@@ -9,7 +9,7 @@ export const NavbarMenuStyled = styled.nav`
   justify-content: flex-start;
   align-items: center;
   min-height: 64px;
-  margin: 12px 24px;
+  margin: 12px;
   padding-right: 24px;
   padding-left: 24px;
   padding-top: 12px;
@@ -19,4 +19,8 @@ export const NavbarMenuStyled = styled.nav`
   background-color: #00bcd4de;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+
+  @media (min-width: 768px) {
+    margin: 12px 24px;
+  }
 `;

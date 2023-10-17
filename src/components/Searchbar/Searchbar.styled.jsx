@@ -1,20 +1,18 @@
-import { BiCameraMovie } from "react-icons/bi";
-import styled from "styled-components";
+import { BiCameraMovie } from 'react-icons/bi';
+import styled from 'styled-components';
 
 export const SearchForm = styled.form`
   display: flex;
-  background-color: #fff;  
+  justify-content: space-between;
+
+  width: 100%;
+  background-color: #fff;
   overflow: hidden;
   border-radius: 4px;
-  
-  /* align-items: center;
-  width: 100%;
-  max-width: 600px; */
 
-  /* margin-left: 24px;
-  border: 1px solid #00bcd4de;
-   */
-
+  @media (max-width: 767px) {
+    border: 1px solid #514d4d;
+  }
 `;
 
 export const Button = styled.button`
@@ -38,7 +36,7 @@ export const Button = styled.button`
 export const Icon = styled(BiCameraMovie)`
   width: 24px;
   height: 24px;
-`
+`;
 
 export const Label = styled.span`
   position: absolute;
@@ -54,13 +52,11 @@ export const Label = styled.span`
 
 export const Input = styled.input`
   display: inline-block;
-  /* width: 100%; */
   font: inherit;
   font-size: 20px;
   border: none;
   outline: none;
   padding-left: 12px;
-  /* padding-right: 4px; */
 
   &::placeholder {
     font: inherit;

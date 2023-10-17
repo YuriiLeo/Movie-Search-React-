@@ -1,26 +1,19 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-// import { Icon } from "./NavbarMenuItem";
+import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Item = styled.li`
-  margin-left  : 20px ;
+  margin-right: 20px;
 `;
 
 export const Link = styled(NavLink)`
   display: flex;
   align-items: center;
 
-   &.active {
+  &.active {
     color: #111414de;
   }
 
   &:hover {
-    color: #787575
+    color: #787575;
   }
 `;
-
-// export const Icons = styled(Icon)`
-//   height: 20px;
-//   width: 20px;
-//   margin-right: 5px;
-// `;
