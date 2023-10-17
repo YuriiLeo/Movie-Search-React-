@@ -6,7 +6,7 @@ This is a Multi Device React web app for movie search. It allows you to search
 for movies using keywords and displays a list of relevant movies. There is also
 an opportunity to view the description of the film, actors, and reviews.
 
-![](/public/movies_search_scrin.png)
+![](/assets/movies_search_scrin.png)
 
 ## Table of Contents
 
