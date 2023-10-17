@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import PropTypes from "prop-types";
-import { SearchForm, Button, Label, Input, Icon, } from './Searchbar.styled';
-import { toast } from 'react-toastify'; 
+import PropTypes from 'prop-types';
+import { SearchForm, Button, Label, Input, Icon } from './Searchbar.styled';
+import { toast } from 'react-toastify';
 
-export default function Searchbar({changeURL}) {
-  const [search, setSearch] = useState("");
+export default function Searchbar({ changeURL }) {
+  const [search, setSearch] = useState('');
 
-  const handleChange = (e) => {
+  const handleChange = e => {
     const { value } = e.target;
     setSearch(value.toLowerCase());
-  }
+  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
-    if (search.trim() === "") {
+    if (search.trim() === '') {
       toast.warn('The search field is empty', {
-        position: "top-center",
+        position: 'top-center',
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -26,32 +26,26 @@ export default function Searchbar({changeURL}) {
       return;
     }
     changeURL(search.trim());
-    reset();
-  }
-  
-  const reset = () => {
-    setSearch("");
-  }  
+  };
 
   return (
-       <SearchForm onSubmit={handleSubmit}>        
-         <Input 
-            type="text"
-            name="search"
-            value={search}
-           autocomplete="off"
-            placeholder="Search movies"
-            onChange={handleChange}
+    <SearchForm onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        name="search"
+        value={search}
+        autocomplete="off"
+        placeholder="Search movies"
+        onChange={handleChange}
       />
-          <Button type="submit" onClick={handleSubmit}>
-            <Icon />
-           <Label>Search</Label>
-          </Button>
-        </SearchForm>
-    )
+      <Button type="submit" onClick={handleSubmit}>
+        <Icon />
+        <Label>Search</Label>
+      </Button>
+    </SearchForm>
+  );
 }
-
 
 Searchbar.propTypes = {
-  changeURL: PropTypes.func
-}
+  changeURL: PropTypes.func,
+};
