@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="Movie-Search-React-">
+    <BrowserRouter basename="movie-search-react">
       <App />
     </BrowserRouter>
   </React.StrictMode>
